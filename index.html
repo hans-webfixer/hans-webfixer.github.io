@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hans – Fast Website Fixes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #020617;
+      border-radius: 18px;
+      padding: 24px 20px 28px;
+      border: 1px solid #1f2937;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.6);
+    }
+    @media (min-width: 768px) {
+      .page { padding: 32px 32px 36px; }
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      color: #9ca3af;
+      margin-bottom: 14px;
+    }
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34,197,94,0.9);
+    }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+    @media (min-width: 768px) {
+      h1 { font-size: 32px; }
+    }
+    .sub {
+      color: #9ca3af;
+      margin-bottom: 20px;
+      max-width: 520px;
+    }
+    .hero-grid {
+      display: grid;
+      gap: 18px;
+    }
+    @media (min-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 2fr 1.3fr;
+        gap: 28px;
+        align-items: start;
+      }
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #374151;
+      font-size: 12px;
+      color: #d1d5db;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .btn-main, .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .btn-main {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #022c22;
+      box-shadow: 0 15px 35px rgba(22,163,74,0.6);
+      font-weight: 600;
+    }
+    .btn-main:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 24px 45px rgba(22,163,74,0.75);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: #e5e7eb;
+      border-color: #4b5563;
+    }
+    .btn-ghost:hover {
+      background: #020617;
+      border-color: #6b7280;
+    }
+    .micro-copy {
+      font-size: 11px;
+      color: #6b7280;
+    }
+    .card-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 22px;
+    }
+    @media (min-width: 768px) {
+      .card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .card {
+      background: #020617;
+      border-radius: 14px;
+      padding: 12px 12px 13px;
+      border: 1px solid #111827;
+    }
+    .card h3 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .card p {
+      font-size: 12px;
+      color: #9ca3af;
+    }
+    .pill {
+      display: inline-block;
+      font-size: 11px;
+      color: #a5b4fc;
+      margin-bottom: 3px;
+    }
+    .section-title {
+      font-size: 15px;
+      margin: 26px 0 10px;
+    }
+    .example-box {
+      border-radius: 13px;
+      border: 1px solid #1f2937;
+      padding: 10px 11px;
+      background: radial-gradient(circle at top left, rgba(34,197,94,0.09), #020617);
+      font-size: 12px;
+    }
+    .example-label {
+      font-size: 11px;
+      color: #6b7280;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .example-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 3px;
+    }
+    .example-tag {
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid #374151;
+      color: #9ca3af;
+    }
+    .strikethrough {
+      text-decoration: line-through;
+      color: #6b7280;
+      font-size: 12px;
+    }
+    .highlight {
+      color: #22c55e;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    footer {
+      margin-top: 26px;
+      font-size: 11px;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    a {
+      color: #a5b4fc;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Available for quick website fixes
+    </div>
+
+    <div class="hero-grid">
+      <section>
+        <h1>Fast website help for small business owners.</h1>
+        <p class="sub">
+          I fix small, annoying website problems so you don’t lose customers:
+          broken layouts, slow pages, bad mobile view, and messy designs.
+        </p>
+
+        <div class="tag-list">
+          <span class="tag">Speed & performance fixes</span>
+          <span class="tag">Mobile optimization</span>
+          <span class="tag">Small layout tweaks</span>
+          <span class="tag">WordPress & HTML/CSS</span>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn-main" href="https://www.fiverr.com" target="_blank" rel="noopener noreferrer">
+            Hire me on Fiverr →
+          </a>
+          <a class="btn-ghost" href="#examples">
+            View example fixes
+          </a>
+        </div>
+        <div class="micro-copy">
+          No long contracts. Clear communication. Quick turnaround.
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <span class="pill">Micro web fixes</span>
+          <h3>Perfect for busy owners</h3>
+          <p>
+            You don’t need a full redesign — just small, sharp fixes
+            that make your website look clean and professional again.
+          </p>
+        </div>
+        <div class="card">
+          <span class="pill">How it works</span>
+          <p>
+            ① Send me your website link<br />
+            ② Tell me what’s broken or ugly<br />
+            ③ I fix it and show you the result
+          </p>
+        </div>
+        <div class="card">
+          <span class="pill">Tech stack</span>
+          <p>
+            HTML · CSS · WordPress basics · performance tweaks · layout alignment
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <section id="examples">
+      <h2 class="section-title">Example “before / after” style fixes</h2>
+      <p style="font-size: 12px; color: #9ca3af; margin-bottom: 8px;">
+        These are sample scenarios I can help with. Real client screenshots will be added later.
+      </p>
+
+      <div class="example-box">
+        <div class="example-label">Homepage layout</div>
+        <div class="example-row">
+          <div>
+            <div class="example-tag">Before</div>
+            <div class="strikethrough">Text overlapping on mobile, huge gaps, slow to load.</div>
+          </div>
+          <div>
+            <div class="example-tag">After</div>
+            <div class="highlight">Clean layout, faster loading, easy to read on phone.</div>
+          </div>
+        </div>
+
+        <div class="example-label" style="margin-top:8px;">Contact section</div>
+        <div class="example-row">
+          <div>
+            <div class="example-tag">Before</div>
+            <div class="strikethrough">Contact button hidden at the bottom of the page.</div>
+          </div>
+          <div>
+            <div class="example-tag">After</div>
+            <div class="highlight">Clear “Contact” button above the fold so customers can reach you.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Why work with me?</h2>
+      <ul style="font-size: 12px; color: #9ca3af; margin-left: 16px; margin-top: 5px;">
+        <li>I focus on <strong>small, fast jobs</strong> — perfect for busy owners.</li>
+        <li>Simple, friendly communication — no complicated tech talk.</li>
+        <li>Clear scope: I fix exactly what we agree on.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <span>© <span id="year"></span> Hans – Web Fixer</span>
+      <span>Portfolio hosted on GitHub Pages</span>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
